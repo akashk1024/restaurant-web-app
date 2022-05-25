@@ -25,10 +25,11 @@ public class OrderService {
     SecurityService securityService;
 
     public Order createOrder(long itemId, int quantity) {
-        long userId = securityService.getUserId();
+        Long userId = securityService.getUserId();
         Item item = itemsService.getItemById(itemId);
         String commaSeperatedItems = getCommaSeperatedItems(null, quantity, item);
         double amount = item.getPrice() * quantity;
+        userId = userId == null ? 1L : userId;
         Order order = Order.builder().userId(userId).amount(amount).items(commaSeperatedItems).orderDate(new Date()).build();
         return orderRepository.save(order);
     }

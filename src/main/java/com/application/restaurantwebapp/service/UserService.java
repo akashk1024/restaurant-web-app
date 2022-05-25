@@ -54,6 +54,7 @@ public class UserService {
         return userRepository.getById(id);
     }
 
+
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }

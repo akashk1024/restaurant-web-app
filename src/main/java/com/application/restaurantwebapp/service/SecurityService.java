@@ -15,7 +15,7 @@ public class SecurityService {
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             currentUserName = authentication.getName();
         }
-        if (currentUserName.isBlank() || currentUserName.equals("user") || currentUserName.equals("admin")) {
+        if (currentUserName.isBlank() || currentUserName.equals("admin")) {
             return null;
         }
         return Long.parseLong(currentUserName);

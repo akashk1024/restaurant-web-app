@@ -31,23 +31,23 @@ public class UserController {
     }
 
 
-    @PostMapping("/add_order")
+    @PostMapping("/add-order")
     public Order createOrder(@RequestParam Long itemId, @RequestParam int quantity) {
         return orderService.createOrder(itemId, quantity);
     }
 
-    @PutMapping("/update_order")
+    @PutMapping("/update-order")
     public Order updateOrder(@RequestParam Long orderId, @RequestParam Long itemId, @RequestParam int quantity) {
         return orderService.updateOrder(orderId, itemId, quantity);
     }
 
-    @GetMapping("show_bill")
+    @GetMapping("show-bill")
     public Order getOrder(@RequestParam long orderId) {
         return orderService.getOrderById(orderId);
     }
 
 
-    @PostMapping("remove_order")
+    @PostMapping("remove-order")
     public void deleteOrder(Long orderId) {
         orderService.deleteOrder(orderId);
     }
